@@ -51,7 +51,7 @@ $ docker run --rm \
     npm install
 ```
 
-Or using with `docker-compose,yml`:
+Or using with `docker-compose.yml`:
 
 ```yml
 services:
