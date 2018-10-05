@@ -47,19 +47,16 @@ $ docker run --rm \
     npm install
 ```
 
-`docker-compose.yml`:
+Or using with `docker-compose,yml`:
+
 ```yml
-node:
+services:
+  node:
     image: tarampampam/node:10.10-alpine
-    restart: on-failure
-    hostname: node
     volumes:
-      - ./src:/app:rw
+    - ./src:/app:rw
     working_dir: /app
     command: []
-    depends_on: []
-    networks:
-    - frontend-network
 ```
 
 ### License
