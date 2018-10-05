@@ -12,7 +12,13 @@
 
 ## Why this image created?
 
-Alpine-based `node` image does not contains installed `git`, for example ([issue][node-586]).
+Base `node` images does not contains installed `git`, for example ([issue][node-586]).
+
+Installed applications list:
+
+- `git`
+- `bash`
+- `openssh`
 
 > Page on `hub.docker.com` can be [found here][link_hub].
 
