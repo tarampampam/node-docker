@@ -26,13 +26,17 @@ Supported tags:
 
 Tag name | Details | Full image name | Dockerfile
 :------: | :-----: | :-------------: | :--------:
-`latest` | ![Size][badge_size_latest] | `tarampampam/node` | [link](./dockerfiles/Dockerfile.latest)
-`alpine` | ![Size][badge_size_alpine] | `tarampampam/node:alpine` | [link](./dockerfiles/Dockerfile.alpine)
-`10.10-alpine` | ![Size][badge_size_10_10_alpine] | `tarampampam/node:10.10-alpine` | [link](./dockerfiles/Dockerfile.10.10-alpine)
+`latest` | ![Size][badge_size_latest] | `tarampampam/node` | [link][dockerfile_latest]
+`alpine` | ![Size][badge_size_alpine] | `tarampampam/node:alpine` | [link][dockerfile_alpine]
+`10.10-alpine` | ![Size][badge_size_10_10_alpine] | `tarampampam/node:10.10-alpine` | [link][dockerfile_10_10_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
 [badge_size_10_10_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:10.10-alpine.svg
+
+[dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.latest
+[dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.alpine
+[dockerfile_10_10_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.10-alpine
 
 ## How can I use this?
 
