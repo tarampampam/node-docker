@@ -2,7 +2,7 @@
   <img alt="logo" src="https://hsto.org/webt/83/nk/0y/83nk0ym623xt8yit1b3pq9tj4cs.png" width="80" />
 </p>
 
-# "node" image with additional useful apps installed
+# `node` image with additional useful apps installed
 
 [![Build][badge_automated]][link_hub]
 [![Build][badge_build]][link_hub]
@@ -10,7 +10,7 @@
 [![Issues][badge_issues]][link_issues]
 [![License][badge_license]][link_license]
 
-### Why this image created?
+## Why this image created?
 
 Alpine-based `node` image does not contains installed `git`, for example ([issue][node-586]).
 
@@ -28,7 +28,7 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
 [badge_size_10_10_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:10.10-alpine.svg
 
-### How can I use this?
+## How can I use this?
 
 For example:
 
@@ -41,7 +41,7 @@ $ docker run --rm \
     npm install
 ```
 
-#### License
+### License
 
 MIT. Use anywhere for your pleasure.
 
