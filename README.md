@@ -33,6 +33,8 @@ Tag name | Details | Full image name | Dockerfile
 `10.12-alpine` | ![Size][badge_size_10_12_alpine] | `tarampampam/node:10.12-alpine` | [link][dockerfile_10_12_alpine]
 `10.13-alpine` | ![Size][badge_size_10_13_alpine] | `tarampampam/node:10.13-alpine` | [link][dockerfile_10_13_alpine]
 `11.1-alpine`  | ![Size][badge_size_11_1_alpine]  | `tarampampam/node:11.1-alpine`  | [link][dockerfile_11_1_alpine]
+`11.2-alpine`  | ![Size][badge_size_11_2_alpine]  | `tarampampam/node:11.2-alpine`  | [link][dockerfile_11_2_alpine]
+`11.3-alpine`  | ![Size][badge_size_11_3_alpine]  | `tarampampam/node:11.3-alpine`  | [link][dockerfile_11_3_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
@@ -41,6 +43,8 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_10_12_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:10.12-alpine.svg
 [badge_size_10_13_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:10.13-alpine.svg
 [badge_size_11_1_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.1-alpine.svg
+[badge_size_11_2_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.2-alpine.svg
+[badge_size_11_3_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.3-alpine.svg
 
 [dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.latest
 [dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.alpine
@@ -49,6 +53,8 @@ Tag name | Details | Full image name | Dockerfile
 [dockerfile_10_12_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.12-alpine
 [dockerfile_10_13_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.13-alpine
 [dockerfile_11_1_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.1-alpine
+[dockerfile_11_2_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.2-alpine
+[dockerfile_11_3_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.3-alpine
 
 ## How can I use this?
 
