@@ -19,6 +19,7 @@ Installed applications list:
 - `git`
 - `bash`
 - `openssh`
+- `yarn`
 
 > Page on `hub.docker.com` can be [found here][link_hub].
 

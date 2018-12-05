@@ -15,4 +15,4 @@ help: ## Show this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 test: ## Build all Docker images locally
-	$(foreach docker_file, $(dockerfiles), $(docker_bin) build --rm -f $(docker_file) .;)
+	$(foreach docker_file, $(dockerfiles), $(docker_bin) build --rm -f $(docker_file) . && ) echo "Test passed!"
