@@ -21,6 +21,8 @@ Installed applications list:
 - `openssh`
 - `yarn`
 
+And updated `npm` version.
+
 > Page on `hub.docker.com` can be [found here][link_hub].
 
 Supported tags:
