@@ -12,7 +12,7 @@
 
 ## Why this image created?
 
-Base `node` images does not contains installed `git`, for example ([issue][node-586]).
+Base [`node`][link_base_node_image] images does not contains installed `git`, for example ([issue][node-586]).
 
 Installed applications list:
 
@@ -39,6 +39,8 @@ Tag name | Details | Full image name | Dockerfile
 `11.2-alpine`  | ![Size][badge_size_11_2_alpine]  | `tarampampam/node:11.2-alpine`  | [link][dockerfile_11_2_alpine]
 `11.3-alpine`  | ![Size][badge_size_11_3_alpine]  | `tarampampam/node:11.3-alpine`  | [link][dockerfile_11_3_alpine]
 `11.4-alpine`  | ![Size][badge_size_11_4_alpine]  | `tarampampam/node:11.4-alpine`  | [link][dockerfile_11_4_alpine]
+`11.5-alpine`  | ![Size][badge_size_11_5_alpine]  | `tarampampam/node:11.5-alpine`  | [link][dockerfile_11_5_alpine]
+`11.6-alpine`  | ![Size][badge_size_11_6_alpine]  | `tarampampam/node:11.6-alpine`  | [link][dockerfile_11_6_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
@@ -50,6 +52,8 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_11_2_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.2-alpine.svg
 [badge_size_11_3_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.3-alpine.svg
 [badge_size_11_4_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.4-alpine.svg
+[badge_size_11_5_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.5-alpine.svg
+[badge_size_11_6_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.6-alpine.svg
 
 [dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.latest
 [dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.alpine
@@ -61,6 +65,8 @@ Tag name | Details | Full image name | Dockerfile
 [dockerfile_11_2_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.2-alpine
 [dockerfile_11_3_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.3-alpine
 [dockerfile_11_4_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.4-alpine
+[dockerfile_11_5_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.5-alpine
+[dockerfile_11_6_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.6-alpine
 
 ## How can I use this?
 
@@ -97,6 +103,7 @@ MIT. Use anywhere for your pleasure.
 [badge_build]:https://img.shields.io/docker/build/tarampampam/node.svg?style=flat-square&maxAge=30
 [badge_license]:https://img.shields.io/github/license/tarampampam/node-docker.svg?style=flat-square&maxAge=30
 [node-586]:https://github.com/nodejs/docker-node/issues/586
+[link_base_node_image]:https://hub.docker.com/_/node?tab=tags
 [link_hub]:https://hub.docker.com/r/tarampampam/node/
 [link_license]:https://github.com/tarampampam/node-docker/blob/master/LICENSE
 [link_issues]:https://github.com/tarampampam/node-docker/issues
