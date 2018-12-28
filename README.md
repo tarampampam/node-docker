@@ -59,20 +59,20 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_11_5_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.5-alpine.svg
 [badge_size_11_6_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.6-alpine.svg
 
-[dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.latest
-[dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.alpine
-[dockerfile_10_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10-alpine
-[dockerfile_10_10_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.10-alpine
-[dockerfile_10_11_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.11-alpine
-[dockerfile_10_12_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.12-alpine
-[dockerfile_10_13_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.10.13-alpine
-[dockerfile_11_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11-alpine
-[dockerfile_11_1_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.1-alpine
-[dockerfile_11_2_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.2-alpine
-[dockerfile_11_3_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.3-alpine
-[dockerfile_11_4_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.4-alpine
-[dockerfile_11_5_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.5-alpine
-[dockerfile_11_6_alpine]:https://github.com/tarampampam/node-docker/blob/master/dockerfiles/Dockerfile.11.6-alpine
+[dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/image-latest/Dockerfile
+[dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/image-alpine/Dockerfile
+[dockerfile_10_alpine]:https://github.com/tarampampam/node-docker/blob/image-10-alpine/Dockerfile
+[dockerfile_10_10_alpine]:https://github.com/tarampampam/node-docker/blob/image-10.10-alpine/Dockerfile
+[dockerfile_10_11_alpine]:https://github.com/tarampampam/node-docker/blob/image-10.11-alpine/Dockerfile
+[dockerfile_10_12_alpine]:https://github.com/tarampampam/node-docker/blob/image-10.12-alpine/Dockerfile
+[dockerfile_10_13_alpine]:https://github.com/tarampampam/node-docker/blob/image-10.13-alpine/Dockerfile
+[dockerfile_11_alpine]:https://github.com/tarampampam/node-docker/blob/image-11-alpine/Dockerfile
+[dockerfile_11_1_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.1-alpine/Dockerfile
+[dockerfile_11_2_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.2-alpine/Dockerfile
+[dockerfile_11_3_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.3-alpine/Dockerfile
+[dockerfile_11_4_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.4-alpine/Dockerfile
+[dockerfile_11_5_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.5-alpine/Dockerfile
+[dockerfile_11_6_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.6-alpine/Dockerfile
 
 ## How can I use this?
 
@@ -83,7 +83,7 @@ $ docker run --rm \
     --volume "$PWD:/app" \
     --workdir "/app" \
     --user "$(id -u):$(id -g)" \
-    tarampampam/node:10.10-alpine \
+    tarampampam/node:11-alpine \
     npm install
 ```
 
@@ -92,7 +92,7 @@ Or using with `docker-compose.yml`:
 ```yml
 services:
   node:
-    image: tarampampam/node:10.10-alpine
+    image: tarampampam/node:11-alpine
     volumes:
     - ./src:/app:rw
     working_dir: /app
