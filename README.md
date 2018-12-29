@@ -106,7 +106,7 @@ services:
 
 ### License
 
-MIT. Use anywhere for your pleasure.
+WTFPL. Use anywhere for your pleasure.
 
 [badge_automated]:https://img.shields.io/docker/automated/tarampampam/node.svg?style=flat-square&maxAge=30
 [badge_pulls]:https://img.shields.io/docker/pulls/tarampampam/node.svg?style=flat-square&maxAge=30

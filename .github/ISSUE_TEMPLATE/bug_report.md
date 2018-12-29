@@ -18,7 +18,7 @@ about: Create a report to help us improve
 
 ### Steps to reproduce the behavior
 
-> Put some code example:
+> Put some commands example:
 >
 > ```bash
 > $ docker pull tarampampam/node:11-alpine
