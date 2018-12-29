@@ -14,6 +14,12 @@
 
 Base [`node`][link_base_node_image] images does not contains installed `git`, for example ([issue][node-586]).
 
+Applications from base images:
+
+- `node`
+- `yarn`
+- `npm`
+
 Installed applications list:
 
 - `git`
