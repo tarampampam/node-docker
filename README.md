@@ -19,7 +19,6 @@ Installed applications list:
 - `git`
 - `bash`
 - `openssh`
-- `yarn`
 
 And updated `npm` version.
 

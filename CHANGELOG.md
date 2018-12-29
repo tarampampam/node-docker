@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Removed
 
 - Repository Makefile
+- `(apk|apt) (install|add) yarn` removed from all dockerfiles (already presented in base images)
 
 ### Changed
 
@@ -51,7 +52,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ## 18.12.5
 
-### Changed
+### Added
 
 - `yarn` installed into all images
 
