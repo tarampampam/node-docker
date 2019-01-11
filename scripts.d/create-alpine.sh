@@ -14,7 +14,7 @@ if [[ ! -z ${IMAGE_TAG} ]]; then
     esac;
   done;
 
-  git checkout --orphan "image-$IMAGE_TAG";
+  git checkout --orphan "image-$IMAGE_TAG-alpine";
   git rm -rf .;
 
   cat >./.gitignore <<EOL
@@ -39,7 +39,7 @@ EOL
 
   git add .;
   git commit -m 'Dockerfile added';
-  git push --set-upstream origin "image-$IMAGE_TAG";
+  git push --set-upstream origin "image-$IMAGE_TAG-alpine";
   git checkout master;
 else
   echo '[ERR] Tag name not passed. Tag should looks like "10.13" (without any prefix or postfix)';
