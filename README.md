@@ -106,6 +106,9 @@ Tag name | Details | Full image name | Dockerfile
 [dockerfile_11_8_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.8-alpine/Dockerfile
 [dockerfile_11_9_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.9-alpine/Dockerfile
 [dockerfile_11_10_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.10-alpine/Dockerfile
+[dockerfile_11_11_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.11-alpine/Dockerfile
+[dockerfile_11_12_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.12-alpine/Dockerfile
+[dockerfile_11_13_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.13-alpine/Dockerfile
 
 ## How can I use this?
 
