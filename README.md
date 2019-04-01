@@ -55,6 +55,9 @@ Tag name | Details | Full image name | Dockerfile
 `11.8-alpine`  | ![Size][badge_size_11_8_alpine]  | `tarampampam/node:11.8-alpine`  | [link][dockerfile_11_8_alpine]
 `11.9-alpine`  | ![Size][badge_size_11_9_alpine]  | `tarampampam/node:11.9-alpine`  | [link][dockerfile_11_9_alpine]
 `11.10-alpine`  | ![Size][badge_size_11_10_alpine]  | `tarampampam/node:11.10-alpine`  | [link][dockerfile_11_10_alpine]
+`11.11-alpine`  | ![Size][badge_size_11_11_alpine]  | `tarampampam/node:11.11-alpine`  | [link][dockerfile_11_11_alpine]
+`11.12-alpine`  | ![Size][badge_size_11_12_alpine]  | `tarampampam/node:11.12-alpine`  | [link][dockerfile_11_12_alpine]
+`11.13-alpine`  | ![Size][badge_size_11_13_alpine]  | `tarampampam/node:11.13-alpine`  | [link][dockerfile_11_13_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
@@ -77,6 +80,9 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_11_8_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.8-alpine.svg
 [badge_size_11_9_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.9-alpine.svg
 [badge_size_11_10_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.10-alpine.svg
+[badge_size_11_11_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.11-alpine.svg
+[badge_size_11_12_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.12-alpine.svg
+[badge_size_11_13_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.13-alpine.svg
 
 [dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/image-latest/Dockerfile
 [dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/image-alpine/Dockerfile
