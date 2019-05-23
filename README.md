@@ -54,10 +54,15 @@ Tag name | Details | Full image name | Dockerfile
 `11.7-alpine`  | ![Size][badge_size_11_7_alpine]  | `tarampampam/node:11.7-alpine`  | [link][dockerfile_11_7_alpine]
 `11.8-alpine`  | ![Size][badge_size_11_8_alpine]  | `tarampampam/node:11.8-alpine`  | [link][dockerfile_11_8_alpine]
 `11.9-alpine`  | ![Size][badge_size_11_9_alpine]  | `tarampampam/node:11.9-alpine`  | [link][dockerfile_11_9_alpine]
-`11.10-alpine`  | ![Size][badge_size_11_10_alpine]  | `tarampampam/node:11.10-alpine`  | [link][dockerfile_11_10_alpine]
-`11.11-alpine`  | ![Size][badge_size_11_11_alpine]  | `tarampampam/node:11.11-alpine`  | [link][dockerfile_11_11_alpine]
-`11.12-alpine`  | ![Size][badge_size_11_12_alpine]  | `tarampampam/node:11.12-alpine`  | [link][dockerfile_11_12_alpine]
-`11.13-alpine`  | ![Size][badge_size_11_13_alpine]  | `tarampampam/node:11.13-alpine`  | [link][dockerfile_11_13_alpine]
+`11.10-alpine` | ![Size][badge_size_11_10_alpine] | `tarampampam/node:11.10-alpine` | [link][dockerfile_11_10_alpine]
+`11.11-alpine` | ![Size][badge_size_11_11_alpine] | `tarampampam/node:11.11-alpine` | [link][dockerfile_11_11_alpine]
+`11.12-alpine` | ![Size][badge_size_11_12_alpine] | `tarampampam/node:11.12-alpine` | [link][dockerfile_11_12_alpine]
+`11.14-alpine` | ![Size][badge_size_11_14_alpine] | `tarampampam/node:11.14-alpine` | [link][dockerfile_11_14_alpine]
+`11.15-alpine` | ![Size][badge_size_11_15_alpine] | `tarampampam/node:11.15-alpine` | [link][dockerfile_11_15_alpine]
+`12-alpine`    | ![Size][badge_size_12_alpine]    | `tarampampam/node:12-alpine`    | [link][dockerfile_12_alpine]
+`12.1-alpine`  | ![Size][badge_size_12_1_alpine]  | `tarampampam/node:12.1-alpine`  | [link][dockerfile_12_1_alpine]
+`12.2-alpine`  | ![Size][badge_size_12_2_alpine]  | `tarampampam/node:12.2-alpine`  | [link][dockerfile_12_2_alpine]
+`12.3-alpine`  | ![Size][badge_size_12_3_alpine]  | `tarampampam/node:12.3-alpine`  | [link][dockerfile_12_3_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
@@ -83,6 +88,12 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_11_11_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.11-alpine.svg
 [badge_size_11_12_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.12-alpine.svg
 [badge_size_11_13_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.13-alpine.svg
+[badge_size_11_14_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.14-alpine.svg
+[badge_size_11_15_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:11.15-alpine.svg
+[badge_size_12_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12-alpine.svg
+[badge_size_12_1_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.1-alpine.svg
+[badge_size_12_2_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.2-alpine.svg
+[badge_size_12_3_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.3-alpine.svg
 
 [dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/image-latest/Dockerfile
 [dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/image-alpine/Dockerfile
@@ -109,6 +120,12 @@ Tag name | Details | Full image name | Dockerfile
 [dockerfile_11_11_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.11-alpine/Dockerfile
 [dockerfile_11_12_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.12-alpine/Dockerfile
 [dockerfile_11_13_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.13-alpine/Dockerfile
+[dockerfile_11_14_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.14-alpine/Dockerfile
+[dockerfile_11_15_alpine]:https://github.com/tarampampam/node-docker/blob/image-11.15-alpine/Dockerfile
+[dockerfile_12_alpine]:https://github.com/tarampampam/node-docker/blob/image-12-alpine/Dockerfile
+[dockerfile_12_1_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.1-alpine/Dockerfile
+[dockerfile_12_2_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.2-alpine/Dockerfile
+[dockerfile_12_3_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.3-alpine/Dockerfile
 
 ## How can I use this?
 
