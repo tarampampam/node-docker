@@ -63,6 +63,7 @@ Tag name | Details | Full image name | Dockerfile
 `12.1-alpine`  | ![Size][badge_size_12_1_alpine]  | `tarampampam/node:12.1-alpine`  | [link][dockerfile_12_1_alpine]
 `12.2-alpine`  | ![Size][badge_size_12_2_alpine]  | `tarampampam/node:12.2-alpine`  | [link][dockerfile_12_2_alpine]
 `12.3-alpine`  | ![Size][badge_size_12_3_alpine]  | `tarampampam/node:12.3-alpine`  | [link][dockerfile_12_3_alpine]
+`12.4-alpine`  | ![Size][badge_size_12_4_alpine]  | `tarampampam/node:12.4-alpine`  | [link][dockerfile_12_4_alpine]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/tarampampam/node.svg
 [badge_size_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:alpine.svg
@@ -94,6 +95,7 @@ Tag name | Details | Full image name | Dockerfile
 [badge_size_12_1_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.1-alpine.svg
 [badge_size_12_2_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.2-alpine.svg
 [badge_size_12_3_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.3-alpine.svg
+[badge_size_12_4_alpine]:https://images.microbadger.com/badges/image/tarampampam/node:12.4-alpine.svg
 
 [dockerfile_latest]:https://github.com/tarampampam/node-docker/blob/image-latest/Dockerfile
 [dockerfile_alpine]:https://github.com/tarampampam/node-docker/blob/image-alpine/Dockerfile
@@ -126,6 +128,7 @@ Tag name | Details | Full image name | Dockerfile
 [dockerfile_12_1_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.1-alpine/Dockerfile
 [dockerfile_12_2_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.2-alpine/Dockerfile
 [dockerfile_12_3_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.3-alpine/Dockerfile
+[dockerfile_12_4_alpine]:https://github.com/tarampampam/node-docker/blob/image-12.4-alpine/Dockerfile
 
 ## How can I use this?
 
