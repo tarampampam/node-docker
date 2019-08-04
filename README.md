@@ -10,6 +10,7 @@
 [![Issues][badge_issues]][link_issues]
 [![License][badge_license]][link_license]
 
+
 ## Why this image created?
 
 Base [`node`][link_base_node_image] images does not contains installed `git`, for example ([issue][node-586]).
