@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## 19.9.25
+
+### Added
+
+- Dockerfile for `12.7-alpine`
+- Dockerfile for `12.8-alpine`
+- Dockerfile for `12.9-alpine`
+- Dockerfile for `12.10-alpine`
+
 ## 19.1.11
 
 ### Added
