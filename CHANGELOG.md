@@ -2,8 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
-
 ## 19.9.25
 
 ### Added
@@ -116,5 +114,3 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 - Dockerfile for `latest`
 
 [own_docker_hub]:https://hub.docker.com/r/tarampampam/node
-[keepachangelog]:https://keepachangelog.com/en/1.0.0/
-[semver]:https://semver.org/spec/v2.0.0.html
