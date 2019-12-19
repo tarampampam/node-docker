@@ -14,7 +14,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
     timeout-minutes: 3
     strategy:
       matrix:
-        major: [8, 9, 10, 11, 12, 13, 14]
+        major: [8, 9, 10, 11, 12, 13, 14, 15, 16]
     env:
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
