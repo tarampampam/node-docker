@@ -1,0 +1,7 @@
+Dockerfile*
+.dockerignore
+.gitignore
+.github
+.editorconfig
+.idea
+.git

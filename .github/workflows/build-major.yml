@@ -1,8 +1,8 @@
-name: Build major alpine image
+name: Build major images
 
 on:
   schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
-    - cron: '10 0 * * *' # every 1 day
+    - cron: '10 0 */3 * *' # every 3 days
   push:
     branches: [develop] # change branch name if you want
     tags-ignore: ['**']
@@ -30,7 +30,8 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           '13-alpine',
           '14-alpine',
           '15-alpine',
-          '16-alpine'
+          '16-alpine',
+          '17-alpine'
         ]
     steps:
       - name: Verify that base image exists
