@@ -16,7 +16,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       TARGET_HUB: 'tarampampam/node'
       APP_MAJOR_VERSION: '0.'
     steps:
-      - name: Get tags info and set target version
+      - name: Get node end existing tags info (alpine only)
         id: info
         run: |
           node_alpine_tags=''
@@ -27,12 +27,13 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
               tr '\n' ' ' |\
               sed -e 's/[[:space:]]*$//')"
           done;
-          node_alpine_tags=$(echo "$node_alpine_tags" | tr ' ' '\n' | sort -V -r | tr '\n' ' ');
           exists_alpine_tags=$(curl -L -s \
             'https://registry.hub.docker.com/v2/repositories/tarampampam/node/tags?page_size=2048' |\
             jq -r '.results[] | select(.name | test("[0-9]-alpine$")) | .name | sub("-alpine$"; "")' |\
-            sort -V -r | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
-          diff=$(comm -23 <(echo "${node_alpine_tags}" | tr ' ' '\n') <(echo "${exists_alpine_tags}" | tr ' ' '\n'))
-          target=$(echo "$diff"| tr ' ' '\n' | head -n 1)
+            tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
+          diff=$(comm -23 \
+            <(echo "${node_alpine_tags}" | tr ' ' '\n' | sort -V -r) \
+            <(echo "${exists_alpine_tags}" | tr ' ' '\n' | sort -V -r))
+          target=$(echo "$diff" | tr ' ' '\n' | head -n 1)
           echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nDiff:\t${diff}\nTarget:\t${target}"
           echo "::set-output name=target::$target"
