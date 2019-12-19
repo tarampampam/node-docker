@@ -9,12 +9,23 @@ on:
 
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
   build:
-    name: Build node ${{ matrix.major }}-alpine
+    name: Build node ${{ matrix.tag }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     strategy:
       matrix:
-        major: [8, 9, 10, 11, 12, 13, 14, 15, 16]
+        tag: [
+          'alpine',
+          '8-alpine',
+          '9-alpine',
+          '10-alpine',
+          '11-alpine',
+          '12-alpine',
+          '13-alpine',
+          '14-alpine',
+          '15-alpine',
+          '16-alpine'
+        ]
     env:
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
@@ -23,7 +34,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         id: verify
         run: |
           echo "::set-output name=exists::$(curl -slSLf \
-            "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" >/dev/null 2>&1 \
+            "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.tag }}" >/dev/null 2>&1 \
             && echo -n true || echo -n false)"
 
       - name: Check out code
@@ -34,12 +45,10 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
 
       - name: Build docker image
         if: steps.verify.outputs.exists == 'true'
-        env:
-          TARGET_TAG: "${{ matrix.major }}-alpine"
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
           docker build \
-            --build-arg "NODE_VERSION=${TARGET_TAG}" \
-            --tag "${TARGET_HUB}:${TARGET_TAG}" \
+            --build-arg "NODE_VERSION=${{ matrix.tag }}" \
+            --tag "${TARGET_HUB}:${{ matrix.tag }}" \
             -f ./Dockerfile.alpine .
-          docker push "${TARGET_HUB}:${TARGET_TAG}"
+          docker push "${TARGET_HUB}:${{ matrix.tag }}"
