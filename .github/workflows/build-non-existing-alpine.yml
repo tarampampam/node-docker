@@ -15,7 +15,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
     steps:
-      - name: Get node end existing tags (only minor alpine - XX.YY) info
+      - name: Get node and existing docker tags info (only minor alpine - XX.YY)
         id: info
         run: |
           node_alpine_tags=''
@@ -42,5 +42,12 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
 
       - name: Build docker image
         if: steps.info.outputs.target != ''
+        env:
+          TARGET_TAG: "${{ steps.info.outputs.target }}-alpine"
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
+          docker build \
+            --build-arg "NODE_VERSION=${TARGET_TAG}" \
+            --tag "${TARGET_HUB}:${TARGET_TAG}" \
+            -f ./Dockerfile.alpine .
+          docker push "${TARGET_HUB}:${TARGET_TAG}"
