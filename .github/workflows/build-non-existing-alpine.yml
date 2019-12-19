@@ -34,6 +34,6 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           echo -n "$diff" | sort -V -r
           echo "---------------------------------"
           echo -n "$diff" | sort -V
-          target=$(echo -n "$diff" | sort -V | tr '\n' ' ' | cut -f 1 -d' ')
+          target=$(echo -n "$diff" | sort -V | cut -f 1 -d' ')
           echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nTarget:\t${target}"
           echo "::set-output name=target::$target"
