@@ -41,7 +41,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         with:
           fetch-depth: 1
 
-      - name: Build docker image
+      - name: Build and push docker image
         if: steps.info.outputs.target != ''
         env:
           TARGET_TAG: "${{ steps.info.outputs.target }}-alpine"

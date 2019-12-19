@@ -7,8 +7,12 @@ on:
     branches: [develop] # change branch name if you want
     tags-ignore: ['**']
 
+env:
+  SOURCE_HUB: 'library/node'
+  TARGET_HUB: 'tarampampam/node'
+
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
-  build:
+  alpine:
     name: Build node ${{ matrix.tag }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
@@ -26,9 +30,6 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           '15-alpine',
           '16-alpine'
         ]
-    env:
-      SOURCE_HUB: 'library/node'
-      TARGET_HUB: 'tarampampam/node'
     steps:
       - name: Verify that base image exists
         id: verify
@@ -43,7 +44,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         with:
           fetch-depth: 1
 
-      - name: Build docker image
+      - name: Build and push docker image
         if: steps.verify.outputs.exists == 'true'
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
@@ -52,3 +53,21 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
             --tag "${TARGET_HUB}:${{ matrix.tag }}" \
             -f ./Dockerfile.alpine .
           docker push "${TARGET_HUB}:${{ matrix.tag }}"
+
+  latest:
+    name: Build latest node
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build and push docker image
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
+          docker build \
+            --build-arg "NODE_VERSION=latest" \
+            --tag "${TARGET_HUB}:latest" \
+            -f ./Dockerfile .
+          docker push "${TARGET_HUB}:latest"

@@ -1,4 +1,4 @@
-# e.g.: `docker build --rm --build-arg "NODE_VERSION=11.8-alpine" -f ./Dockerfile.alpine .`
+# e.g.: `docker build --rm --build-arg "NODE_VERSION=latest" -f ./Dockerfile .`
 ARG NODE_VERSION
 
 FROM node:${NODE_VERSION}
