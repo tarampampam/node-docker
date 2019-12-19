@@ -1,4 +1,4 @@
-name: Build non-existing alpine image
+name: Build minor alpine image
 
 on:
   schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
@@ -15,7 +15,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
     steps:
-      - name: Get node and existing docker tags info (only minor alpine - XX.YY)
+      - name: Get minor node images (alpine-based) and compare with existing images
         id: info
         run: |
           node_alpine_tags=''
@@ -31,7 +31,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
             tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
           diff=$(comm -23 <(echo "${node_alpine_tags}" | tr ' ' '\n' | sort) <(echo "${exists_alpine_tags}" | tr ' ' '\n' | sort))
           target=$(echo -n "$diff" | sort -V | head -n 1)
-          echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nTarget:\t${target}"
+          echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nDiff:\t${diff}\nTarget:\t${target}"
           echo "::set-output name=target::$target"
 
       - name: Check out code
