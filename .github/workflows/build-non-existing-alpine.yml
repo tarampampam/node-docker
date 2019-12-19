@@ -30,7 +30,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
               sed -e 's/[[:space:]]*$//')"
           done;
           exists_alpine_tags=$(curl -L -s \
-            'https://registry.hub.docker.com/v2/repositories/tarampampam/node/tags?page_size=2048' |\
+            "https://registry.hub.docker.com/v2/repositories/${TARGET_HUB}/tags?page_size=2048" |\
             jq -r '.results[] | select(.name | test("[0-9]-alpine$")) | .name | sub("-alpine$"; "")' |\
             tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
           diff=$(comm -23 \
