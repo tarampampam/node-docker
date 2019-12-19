@@ -6,5 +6,5 @@ FROM node:${NODE_VERSION}
 RUN set -x \
     && apk add --no-cache bash git openssh \
     && npm install -g npm \
-    && npm cache clean --force \
+    && npm cache clean \
     && git --version && bash --version && ssh -V && npm -v && node -v && yarn -v
