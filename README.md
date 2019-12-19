@@ -32,7 +32,7 @@ And updated `npm` version.
 
 ## Supported tags
 
-All supported image tags [can be found here][link_docker_tags].
+All supported image tags [can be found here][link_docker_tags]. New **minor** `alpine`-based images _(e.g. `tarampampam/node:13.1-alpine`, if it does not exists previously)_ builds automatically every hour, **major** _(e.g. `tarampampam/node:13-alpine`)_ and `latest` rebuilds every 3 days.
 
 ## How can I use this?
 
