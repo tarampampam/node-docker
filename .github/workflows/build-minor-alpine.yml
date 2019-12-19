@@ -11,6 +11,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
   build:
     name: Build docker image
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
