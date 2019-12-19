@@ -9,12 +9,12 @@ on:
 
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
   build:
-    name: Build docker image for node ${{ matrix.major }}-alpine
+    name: Build node ${{ matrix.major }}-alpine
     runs-on: ubuntu-latest
     timeout-minutes: 3
     strategy:
       matrix:
-        major: [8] # [9, 10, 11, 12, 13, 14, 15, 16]
+        major: [8, 9, 10, 11, 12, 13, 14, 15, 16]
     env:
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
