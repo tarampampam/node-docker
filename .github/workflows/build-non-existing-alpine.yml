@@ -15,27 +15,25 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
     steps:
-      - name: Get node end existing tags info (alpine only)
+      - name: Get node end existing tags (only minor alpine - XX.YY) info
         id: info
         run: |
-          node_alpine_minor_tags=''
+          node_alpine_tags=''
           for page in {1..20}; do
-            node_alpine_minor_tags="$node_alpine_minor_tags $(curl -L -s \
+            node_alpine_tags="$node_alpine_tags $(curl -L -s \
               "https://registry.hub.docker.com/v2/repositories/${SOURCE_HUB}/tags?page=${page}&page_size=2048" |\
               jq -r '.results[] | select(.name | test("^[0-9]+.[0-9]+-alpine$")) | .name | sub("-alpine$"; "")' |\
               tr '\n' ' ' |\
               sed -e 's/[[:space:]]*$//')"
           done;
-          exists_alpine_minor_tags=$(curl -L -s \
+          exists_alpine_tags=$(curl -L -s \
             "https://registry.hub.docker.com/v2/repositories/${TARGET_HUB}/tags?page_size=2048" |\
             jq -r '.results[] | select(.name | test("^[0-9]+.[0-9]+-alpine$")) | .name | sub("-alpine$"; "")' |\
             tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
-          diff=$(comm -23 \
-            <(echo "${node_alpine_minor_tags}" | tr ' ' '\n' | sort) \
-            <(echo "${exists_alpine_minor_tags}" | tr ' ' '\n' | sort))
+          diff=$(comm -23 <(echo "${node_alpine_tags}" | tr ' ' '\n' | sort) <(echo "${exists_alpine_tags}" | tr ' ' '\n' | sort))
           echo "$diff" | sort -V -r
           echo "---------------------------------"
           echo "$diff" | sort -V
           target=$(echo "$diff" | sort -V -r | head -n 1)
-          echo -e "Node:\t${node_alpine_minor_tags}\nExists:\t${exists_alpine_minor_tags}\nTarget:\t${target}"
+          echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nTarget:\t${target}"
           echo "::set-output name=target::$target"
