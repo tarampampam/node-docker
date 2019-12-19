@@ -1,0 +1,30 @@
+name: Build major alpine image
+
+on:
+  schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
+    - cron: '0 * * * *' # every 1 hour
+  push:
+    branches: [develop] # change branch name if you want
+    tags-ignore: ['**']
+
+jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
+  build:
+    name: Build docker image for node ${{ matrix.major }}-alpine
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    strategy:
+      matrix:
+        major: [8, 9, 10, 11, 12, 13, 14]
+    env:
+      SOURCE_HUB: 'library/node'
+      TARGET_HUB: 'tarampampam/node'
+    steps:
+      - name: Verify that base image exists
+        id: verify
+        run: |
+          echo "::set-output name=exists::${curl -slSLf "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" \
+            >/dev/null 2>&1 && echo 'true' || echo 'false'}"
+
+      - name: Check result
+        if: steps.verify.outputs.exists == 'true'
+        run: echo YES
