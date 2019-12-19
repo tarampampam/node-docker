@@ -1,0 +1,77 @@
+name: Build major images
+
+on:
+  schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
+    - cron: '10 0 */3 * *' # every 3 days
+  push:
+    branches: [develop] # change branch name if you want
+    tags-ignore: ['**']
+
+env:
+  SOURCE_HUB: 'library/node'
+  TARGET_HUB: 'tarampampam/node'
+
+jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
+  alpine:
+    name: Build node:${{ matrix.tag }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        tag: [
+          'alpine',
+          'lts-alpine',
+          'current-alpine',
+          '8-alpine',
+          '9-alpine',
+          '10-alpine',
+          '11-alpine',
+          '12-alpine',
+          '13-alpine',
+          '14-alpine',
+          '15-alpine',
+          '16-alpine',
+          '17-alpine'
+        ]
+    steps:
+      - name: Verify that base image exists
+        id: verify
+        run: |
+          echo "::set-output name=exists::$(curl -slSLf \
+            "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.tag }}" >/dev/null 2>&1 \
+            && echo -n true || echo -n false)"
+
+      - name: Check out code
+        if: steps.verify.outputs.exists == 'true'
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build and push docker image
+        if: steps.verify.outputs.exists == 'true'
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
+          docker build \
+            --build-arg "NODE_VERSION=${{ matrix.tag }}" \
+            --tag "${TARGET_HUB}:${{ matrix.tag }}" \
+            -f ./Dockerfile.alpine .
+          docker push "${TARGET_HUB}:${{ matrix.tag }}"
+
+  latest:
+    name: Build node:latest
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build and push docker image
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
+          docker build \
+            --build-arg "NODE_VERSION=latest" \
+            --tag "${TARGET_HUB}:latest" \
+            -f ./Dockerfile .
+          docker push "${TARGET_HUB}:latest"

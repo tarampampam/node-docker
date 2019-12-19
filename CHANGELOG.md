@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## 19.12.19
+
+### Changed
+
+- Images building (CI) moved from `hub.docker.com` to GitHub Actions
+
+### Added
+
+- Hourly scheduler checks for new **minor** `alpine`-based image and build if it does not exists in `tarampampam/node` repository
+- Every 3 days scheduler rebuild **major** `alpine`-based and `latest` images and push it in `tarampampam/node` repository
+
+### Removed
+
+- All branches, except `master` (dockerfiles now located in root of `master` branch)
+
 ## 19.9.25
 
 ### Added
