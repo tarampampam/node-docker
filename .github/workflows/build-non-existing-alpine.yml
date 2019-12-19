@@ -33,3 +33,14 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           target=$(echo -n "$diff" | sort -V | head -n 1)
           echo -e "Node:\t${node_alpine_tags}\nExists:\t${exists_alpine_tags}\nTarget:\t${target}"
           echo "::set-output name=target::$target"
+
+      - name: Check out code
+        if: steps.info.outputs.target != ''
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build docker image
+        if: steps.info.outputs.target != ''
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
