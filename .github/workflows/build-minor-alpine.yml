@@ -2,7 +2,7 @@ name: Build minor alpine image
 
 on:
   schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
-    - cron: '0 * * * *' # every 1 hour
+    - cron: '10 * * * *' # every 1 hour
   push:
     branches: [develop] # change branch name if you want
     tags-ignore: ['**']

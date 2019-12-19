@@ -2,7 +2,7 @@ name: Build major alpine image
 
 on:
   schedule: # Always runs on a default branch, docs: <https://git.io/Je5Z7>
-    - cron: '0 * * * *' # every 1 hour
+    - cron: '10 0 * * *' # every 1 day
   push:
     branches: [develop] # change branch name if you want
     tags-ignore: ['**']
@@ -14,15 +14,32 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
     timeout-minutes: 3
     strategy:
       matrix:
-        major: [8, 9, 10, 11, 12, 13, 14, 15, 16]
+        major: [8] # [9, 10, 11, 12, 13, 14, 15, 16]
     env:
       SOURCE_HUB: 'library/node'
       TARGET_HUB: 'tarampampam/node'
     steps:
       - name: Verify that base image exists
         id: verify
-        run: echo "::set-output name=exists::$(curl -slSLf "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" >/dev/null 2>&1 && echo true || echo false)"
+        run: |
+          echo "::set-output name=exists::$(curl -slSLf \
+            "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" >/dev/null 2>&1 \
+            && echo -n true || echo -n false)"
 
-      - name: Check result
+      - name: Check out code
         if: steps.verify.outputs.exists == 'true'
-        run: echo YES
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build docker image
+        if: steps.verify.outputs.exists == 'true'
+        env:
+          TARGET_TAG: "${{ matrix.major }}-alpine"
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
+          docker build \
+            --build-arg "NODE_VERSION=${TARGET_TAG}" \
+            --tag "${TARGET_HUB}:${TARGET_TAG}" \
+            -f ./Dockerfile.alpine .
+          docker push "${TARGET_HUB}:${TARGET_TAG}"
