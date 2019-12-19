@@ -22,8 +22,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Verify that base image exists
         id: verify
         run: |
-          echo "::set-output name=exists::${curl -slSLf "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" \
-            >/dev/null 2>&1 && echo 'true' || echo 'false'}"
+          echo "::set-output name=exists::${curl -slSLf "https://hub.docker.com/v2/repositories/${SOURCE_HUB}/tags/${{ matrix.major }}-alpine" >/dev/null 2>&1 && echo true || echo false}"
 
       - name: Check result
         if: steps.verify.outputs.exists == 'true'
