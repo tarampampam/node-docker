@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://hsto.org/webt/83/nk/0y/83nk0ym623xt8yit1b3pq9tj4cs.png" width="80" />
+  <img alt="logo" src="https://hsto.org/webt/83/nk/0y/83nk0ym623xt8yit1b3pq9tj4cs.png" width="128" />
 </p>
 
 # `node` image with additional useful apps installed
