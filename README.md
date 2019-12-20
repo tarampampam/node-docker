@@ -63,11 +63,11 @@ services:
 
 WTFPL. Use anywhere for your pleasure.
 
-[badge_pulls]:https://img.shields.io/docker/pulls/tarampampam/node.svg?maxAge=30
-[badge_issues]:https://img.shields.io/github/issues/tarampampam/node-docker.svg?maxAge=30
-[badge_license]:https://img.shields.io/github/license/tarampampam/node-docker.svg?maxAge=30
-[badge_build_minor]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20minor%20alpine%20image.svg?label=minor
-[badge_build_major]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20major%20images.svg?label=major
+[badge_pulls]:https://img.shields.io/docker/pulls/tarampampam/node.svg?maxAge=30&style=for-the-badge
+[badge_issues]:https://img.shields.io/github/issues/tarampampam/node-docker.svg?maxAge=30&style=for-the-badge
+[badge_license]:https://img.shields.io/github/license/tarampampam/node-docker.svg?maxAge=30&style=for-the-badge&color=success
+[badge_build_minor]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20minor%20alpine%20image.svg?label=minor%20build&logo=github&style=for-the-badge
+[badge_build_major]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20major%20images.svg?label=major%20build&logo=github&style=for-the-badge
 [node-586]:https://github.com/nodejs/docker-node/issues/586
 [link_base_node_image]:https://hub.docker.com/_/node?tab=tags
 [link_hub]:https://hub.docker.com/r/tarampampam/node/
