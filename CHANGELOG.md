@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 19.12.20
+
+### Removed
+
+- `npm` updating
+
 ## 19.12.19
 
 ### Changed
