@@ -1,0 +1,34 @@
+name: Test building
+
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+  pull_request:
+
+jobs:
+  latest:
+    name: Build latest image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build docker image
+        run: docker build --build-arg "NODE_VERSION=latest" -f ./Dockerfile .
+
+  alpine:
+    name: Build alpine image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build docker image
+        run: docker build --build-arg "NODE_VERSION=10.10-alpine" -f ./Dockerfile.alpine .
