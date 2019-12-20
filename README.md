@@ -68,8 +68,8 @@ WTFPL. Use anywhere for your pleasure.
 [badge_pulls]:https://img.shields.io/docker/pulls/tarampampam/node.svg?style=flat-square&maxAge=30
 [badge_issues]:https://img.shields.io/github/issues/tarampampam/node-docker.svg?style=flat-square&maxAge=30
 [badge_license]:https://img.shields.io/github/license/tarampampam/node-docker.svg?style=flat-square&maxAge=30
-[badge_build_minor]:https://github.com/tarampampam/hugo-docker/workflows/Build%20minor%20alpine%20image/badge.svg
-[badge_build_major]:https://github.com/tarampampam/hugo-docker/workflows/Build%20major%20images/badge.svg
+[badge_build_minor]:https://github.com/tarampampam/node-docker/workflows/Build%20minor%20alpine%20image/badge.svg
+[badge_build_major]:https://github.com/tarampampam/node-docker/workflows/Build%20major%20images/badge.svg
 [node-586]:https://github.com/nodejs/docker-node/issues/586
 [link_base_node_image]:https://hub.docker.com/_/node?tab=tags
 [link_hub]:https://hub.docker.com/r/tarampampam/node/
