@@ -32,7 +32,7 @@ New **minor** `alpine`-based images _(e.g. `tarampampam/node:13.1-alpine`, if it
 
 ## Supported tags
 
-[![dockeri.co](https://dockeri.co/image/tarampampam/node)](https://hub.docker.com/r/tarampampam/node)
+[![image stats](https://dockeri.co/image/tarampampam/node)][link_docker_tags]
 
 All supported image tags [can be found here][link_docker_tags].
 
