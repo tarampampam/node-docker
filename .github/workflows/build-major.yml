@@ -22,8 +22,8 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           'alpine',
           'lts-alpine',
           'current-alpine',
-          '8-alpine',
-          '9-alpine',
+          #'8-alpine', # latest update in 2019
+          #'9-alpine', # latest update in 2018
           '10-alpine',
           '11-alpine',
           '12-alpine',
@@ -58,7 +58,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         if: steps.verify.outputs.exists == 'true'
         run: |
           docker buildx build \
-            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
+            --platform "linux/amd64,linux/arm/v6,linux/arm64/v8" \
             --build-arg "NODE_VERSION=${{ matrix.tag }}" \
             --tag "${TARGET_HUB}:${{ matrix.tag }}" \
             --file ./Dockerfile.alpine \
@@ -86,7 +86,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Build and push docker image
         run: |
           docker buildx build \
-            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
+            --platform "linux/amd64,linux/arm/v6,linux/arm64/v8" \
             --build-arg "NODE_VERSION=latest" \
             --tag "${TARGET_HUB}:latest" \
             --file ./Dockerfile \

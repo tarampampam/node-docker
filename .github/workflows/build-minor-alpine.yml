@@ -58,7 +58,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           TARGET_TAG: "${{ steps.info.outputs.target }}-alpine"
         run: |
           docker buildx build \
-            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
+            --platform "linux/amd64,linux/arm/v6,linux/arm64/v8" \
             --build-arg "NODE_VERSION=${TARGET_TAG}" \
             --tag "${TARGET_HUB}:${TARGET_TAG}" \
             --file ./Dockerfile.alpine \
