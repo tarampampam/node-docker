@@ -71,7 +71,6 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
     timeout-minutes: 10
     steps:
       - name: Check out code
-        if: steps.verify.outputs.exists == 'true'
         uses: actions/checkout@v2
 
       - name: Set up QEMU
