@@ -39,17 +39,28 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Check out code
         if: steps.info.outputs.target != ''
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+
+      - name: Set up QEMU
+        if: steps.info.outputs.target != ''
+        uses: docker/setup-qemu-action@v1 # Action page: <https://github.com/docker/setup-qemu-action>
+
+      - name: Set up Docker Buildx
+        if: steps.info.outputs.target != ''
+        uses: docker/setup-buildx-action@v1 # Action page: <https://github.com/docker/setup-buildx-action>
+
+      - name: Docker login
+        if: steps.info.outputs.target != ''
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
 
       - name: Build and push docker image
         if: steps.info.outputs.target != ''
         env:
           TARGET_TAG: "${{ steps.info.outputs.target }}-alpine"
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
-          docker build \
+          docker buildx build \
+            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
             --build-arg "NODE_VERSION=${TARGET_TAG}" \
             --tag "${TARGET_HUB}:${TARGET_TAG}" \
-            -f ./Dockerfile.alpine .
-          docker push "${TARGET_HUB}:${TARGET_TAG}"
+            --file ./Dockerfile.alpine \
+            --push \
+            .

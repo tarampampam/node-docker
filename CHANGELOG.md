@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 21.03.31
+
+### Added
+
+- Image multi-arch building
+
 ## 19.12.20
 
 ### Removed

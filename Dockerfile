@@ -1,7 +1,7 @@
 # e.g.: `docker build --rm --build-arg "NODE_VERSION=latest" -f ./Dockerfile .`
 ARG NODE_VERSION
 
-FROM node:${NODE_VERSION}
+FROM --platform=${TARGETPLATFORM:-linux/amd64} node:${NODE_VERSION}
 
 RUN set -x \
     && apt-get update \

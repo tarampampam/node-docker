@@ -1,7 +1,7 @@
 # e.g.: `docker build --rm --build-arg "NODE_VERSION=11.8-alpine" -f ./Dockerfile.alpine .`
 ARG NODE_VERSION
 
-FROM node:${NODE_VERSION}
+FROM --platform=${TARGETPLATFORM:-linux/amd64} node:${NODE_VERSION}
 
 RUN set -x \
     && apk add --no-cache bash git openssh \

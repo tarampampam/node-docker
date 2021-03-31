@@ -44,18 +44,26 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Check out code
         if: steps.verify.outputs.exists == 'true'
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1 # Action page: <https://github.com/docker/setup-qemu-action>
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1 # Action page: <https://github.com/docker/setup-buildx-action>
+
+      - name: Docker login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
 
       - name: Build and push docker image
         if: steps.verify.outputs.exists == 'true'
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
-          docker build \
+          docker buildx build \
+            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
             --build-arg "NODE_VERSION=${{ matrix.tag }}" \
             --tag "${TARGET_HUB}:${{ matrix.tag }}" \
-            -f ./Dockerfile.alpine .
-          docker push "${TARGET_HUB}:${{ matrix.tag }}"
+            --file ./Dockerfile.alpine \
+            --push \
+            .
 
   latest:
     name: Build node:latest
@@ -63,15 +71,24 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
     timeout-minutes: 10
     steps:
       - name: Check out code
+        if: steps.verify.outputs.exists == 'true'
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1 # Action page: <https://github.com/docker/setup-qemu-action>
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1 # Action page: <https://github.com/docker/setup-buildx-action>
+
+      - name: Docker login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
 
       - name: Build and push docker image
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin &> /dev/null
-          docker build \
+          docker buildx build \
+            --platform "linux/amd64,linux/arm/v7,linux/arm64/v8" \
             --build-arg "NODE_VERSION=latest" \
             --tag "${TARGET_HUB}:latest" \
-            -f ./Dockerfile .
-          docker push "${TARGET_HUB}:latest"
+            --file ./Dockerfile \
+            --push \
+            .
