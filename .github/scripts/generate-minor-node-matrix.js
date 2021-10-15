@@ -29,7 +29,7 @@ module.exports = async ({github, context, core}) => {
       && /^\d+\.\d+[^.]+$/.test(image.tag) // only in MAJOR.MINOR format
   }
 
-  const sourceTags = (await fetchTagsHistory(env.sourceImage, 150))
+  const sourceTags = (await fetchTagsHistory(env.sourceImage, 350))
     .filter(tagsFilter) // the common filter
     .map(image => {
       image.arch = image.arch.filter(arch => {

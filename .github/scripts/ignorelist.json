@@ -9,6 +9,7 @@
   "9.2-alpine": ["linux/386"],
   "9.1-alpine": ["linux/386"],
   "9.0-alpine": ["linux/386"],
+  "9-alpine": ["linux/386"],
   "8.17-alpine": ["linux/386"],
   "8.16-alpine": ["linux/386"],
   "8.15-alpine": ["linux/386"],
@@ -18,7 +19,12 @@
   "8.11-alpine": ["linux/386"],
   "8.10-alpine": ["linux/386"],
   "8.9-alpine": ["linux/386"],
+  "8-alpine": ["linux/386"],
+  "7.5-alpine": ["*"],
   "7.4-alpine": ["*"],
+  "7.3-alpine": ["*"],
+  "7.2-alpine": ["*"],
   "6.17-alpine": ["linux/386"],
-  "4.7-alpine": ["*"]
+  "4.7-alpine": ["*"],
+  "4.6-alpine": ["*"]
 }
