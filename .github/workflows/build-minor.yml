@@ -3,7 +3,7 @@ name: build-minor
 on:
   schedule: [cron: '10 * * * *'] # every 1 hour
   push:
-    branches-ignore: [master, main] # TODO uncomment this line
+    branches: [master, main]
     tags-ignore: ['**']
 
 jobs:
