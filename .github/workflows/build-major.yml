@@ -1,7 +1,7 @@
 name: build-major
 
 on:
-  schedule: [cron: '10 0 */3 * *'] # every 3 days
+  schedule: [cron: '1 * * * *'] # every 1 hour # [cron: '10 0 */3 * *'] # every 3 days
   push:
     branches: [master, main]
     tags-ignore: ['**']
