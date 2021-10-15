@@ -1,9 +1,11 @@
 {
-  "X.Y-alpine": [
-    "arch1",
-    "arch2"
+  "9.0-alpine": [
+    "linux/386"
   ],
-  "X.Z-alpine": [
+  "7.4-alpine": [
+    "*"
+  ],
+  "4.7-alpine": [
     "*"
   ]
 }
