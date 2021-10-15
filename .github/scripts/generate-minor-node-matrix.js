@@ -32,7 +32,7 @@ module.exports = async ({github, context, core}) => {
   const sourceTags = (await fetchTagsHistory(env.sourceImage, 40))
     .filter(tagsFilter) // the common filter
     .map(image => {
-      image.arch.filter(arch => {
+      image.arch = image.arch.filter(arch => {
         const should = shouldBeIgnored(image.tag, arch)
 
         if (should === true) {

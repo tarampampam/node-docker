@@ -64,7 +64,7 @@ module.exports = async ({github, context, core}) => {
         /** @type {{tag: string, arch: string[]}} */
         const image = promise.value
 
-        image.arch.filter(arch => {
+        image.arch = image.arch.filter(arch => {
           const should = shouldBeIgnored(image.tag, arch)
 
           if (should === true) {
