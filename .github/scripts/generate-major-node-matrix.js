@@ -64,20 +64,15 @@ module.exports = async ({github, context, core}) => {
         /** @type {{tag: string, arch: string[]}} */
         const image = promise.value
 
-        image.arch
-          .map(arch => {
-            arch.filter(arch => {
-              const should = shouldBeIgnored(image.tag, arch)
+        image.arch.filter(arch => {
+          const should = shouldBeIgnored(image.tag, arch)
 
-              if (should === true) {
-                core.info(`Architecture ${arch} for the tag ${image.tag} ignored (rule from the ignore-list)`)
-              }
+          if (should === true) {
+            core.info(`Architecture ${arch} for the tag ${image.tag} ignored (rule from the ignore-list)`)
+          }
 
-              return should
-            })
-
-            return arch
-          })
+          return !should
+        })
 
         if (image.arch.length !== 0) {
           matrix.include.push({
