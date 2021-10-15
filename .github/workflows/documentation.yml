@@ -15,5 +15,5 @@ jobs:
       - uses: peter-evans/dockerhub-description@v2 # Action page: <https://github.com/peter-evans/dockerhub-description>
         with:
           username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_USER_PASSWORD }}
           repository: tarampampam/node
