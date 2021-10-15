@@ -50,8 +50,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
-        #include:
-      #  - {tag: foo, platforms: 'platform/one,platform/two/v2'}
+      #  include:
+      #    - {tag: foo, platforms: 'platform/one,platform/two/v2'}
     steps:
       - uses: actions/checkout@v2
 
