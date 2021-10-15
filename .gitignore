@@ -1,13 +1,8 @@
-# Environment deps.
-/.env
-
 # IDEs
-/nbproject
+/.vscode
 /.idea
 
 # Temp dirs & trash
 .DS_Store
-*.cache
 /temp
 /tmp
-run.sh

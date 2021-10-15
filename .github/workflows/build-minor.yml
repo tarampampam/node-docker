@@ -1,7 +1,7 @@
-name: build-major
+name: build-minor
 
 on:
-  schedule: [cron: '10 0 */3 * *'] # every 3 days
+  schedule: [cron: '10 * * * *'] # every 1 hour
   push:
     branches: [master, main]
     tags-ignore: ['**']
@@ -19,27 +19,10 @@ jobs:
         id: set-matrix
         with:
           github-token: 'empty' # the token is not needed for the script running
-          script: return await require('./.github/scripts/generate-major-node-matrix.js')({github, context, core})
+          script: return await require('./.github/scripts/generate-minor-node-matrix.js')({github, context, core})
         env:
           source-image: library/node
           target-image: tarampampam/node
-          tags-list: |
-            latest
-            alpine
-            lts-alpine
-            current-alpine
-            8-alpine
-            9-alpine
-            10-alpine
-            11-alpine
-            12-alpine
-            13-alpine
-            14-alpine
-            15-alpine
-            16-alpine
-            17-alpine
-            18-alpine
-            19-alpine
 
   build:
     name: Build the docker image (${{ matrix.tag }})

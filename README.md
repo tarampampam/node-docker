@@ -1,40 +1,70 @@
 <p align="center">
-  <img alt="logo" src="https://hsto.org/webt/83/nk/0y/83nk0ym623xt8yit1b3pq9tj4cs.png" width="128" />
+  <img src="https://socialify.git.ci/tarampampam/node-docker/image?forks=1&issues=1&logo=https%3A%2F%2Fhsto.org%2Fwebt%2F83%2Fnk%2F0y%2F83nk0ym623xt8yit1b3pq9tj4cs.png&owner=1&stargazers=1&theme=Dark" alt="node-docker" width="100%" />
 </p>
 
-# `node` image with additional useful apps installed
+<p align="center">
+  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-minor?maxAge=30&label=build%20minor&logo=github&style=flat-square" alt="" />
+  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-major?maxAge=30&label=build%20major&logo=github&style=flat-square" alt="" />
+  <img src="https://img.shields.io/docker/pulls/tarampampam/node.svg?maxAge=30&logo=docker&logoColor=white&style=flat-square" alt="" />
+  <img src="https://img.shields.io/github/license/tarampampam/node-docker.svg?maxAge=30&style=flat-square" alt="" />
+</p>
 
-[![Build Status][badge_build_minor]][link_actions]
-[![Build Status][badge_build_major]][link_actions]
-[![Docker Pulls][badge_pulls]][link_hub]
-[![Issues][badge_issues]][link_issues]
-[![License][badge_license]][link_license]
+# Why?
 
-## Why this image created?
+Base [`node`][base-node-image] image does not contain installed `git`, for example ([issue][node-586]). Because of this previously I had to build a separate image (installing many npm dependencies was otherwise impossible), but now we can just use this image :)
 
-Base [`node`][link_base_node_image] images does not contains installed `git`, for example ([issue][node-586]).
+## Installed applications
 
-Applications from base images:
-
-- `node`
-- `yarn`
-- `npm`
-
-Installed applications list:
+We had installed to the alpine-based images the following applications (using a package manager):
 
 - `git`
 - `bash`
 - `openssh`
 
-> Page on `hub.docker.com` can be [found here][link_hub].
+> If you think something else should be installed additionally, please create an [issue in this repository][new-issue] describing the reason
 
-New **minor** `alpine`-based images _(e.g. `tarampampam/node:13.1-alpine`, if it does not exists previously)_ builds automatically every hour, **major** _(e.g. `tarampampam/node:13-alpine`)_ and `latest` rebuilds every 3 days.
+### What about updates?
+
+I took care of this - using periodic runs of GitHub actions tags in `major(.minor)-alpine` format are automatically rebuilt (if they have been updated). You can check all existing tags in one of the following docker-registries:
+
+[![image stats](https://dockeri.co/image/tarampampam/node)][docker-hub-tags]
+
+Registry                                   | Image
+------------------------------------------ | -----
+[Docker Hub][docker-hub]                   | `tarampampam/node`
+[GitHub Container Registry][ghcr] (mirror) | `ghcr.io/tarampampam/node`
+
+All tags support architectures that are available in the original tags:
+
+```bash
+$ docker run --rm mplatform/mquery tarampampam/node:latest
+Image: tarampampam/node:latest
+ * Manifest List: Yes
+ * Supported platforms:
+   - linux/s390x
+   - linux/ppc64le
+   - linux/amd64
+   - linux/arm64
+   - linux/arm/v7
+```
 
 ## Supported tags
 
-[![image stats](https://dockeri.co/image/tarampampam/node)][link_docker_tags]
+- `latest`
+- `alpine`
+- `lts-alpine`
+- `current-alpine`
+- `8-alpine`, `8.x-alpine` (deprecated)
+- `9-alpine`, `9.x-alpine` (deprecated)
+- `10-alpine`, `10.x-alpine`
+- `11-alpine`, `11.x-alpine`
+- `12-alpine`, `12.x-alpine`
+- `13-alpine`, `13.x-alpine`
+- `14-alpine`, `14.x-alpine`
+- `15-alpine`, `15.x-alpine`
+- `16-alpine`, `16.x-alpine`
 
-All supported image tags [can be found here][link_docker_tags].
+> Note: Some tags/platforms [are ignored](.github/scripts/ignorelist.json) due to the "Segmentation fault" errors
 
 ## How can I use this?
 
@@ -45,8 +75,8 @@ $ docker run --rm \
     --volume "$(pwd):/app" \
     --workdir "/app" \
     --user "$(id -u):$(id -g)" \
-    tarampampam/node:13-alpine \
-    npm install
+    tarampampam/node:16-alpine \
+    yarn install
 ```
 
 Or using with `docker-compose.yml`:
@@ -54,26 +84,20 @@ Or using with `docker-compose.yml`:
 ```yml
 services:
   node:
-    image: tarampampam/node:13-alpine
+    image: tarampampam/node:16-alpine
     volumes:
-    - ./src:/app:rw
+      - ./src:/app:rw
     working_dir: /app
     command: []
 ```
 
-### License
+## License
 
 WTFPL. Use anywhere for your pleasure.
 
-[badge_pulls]:https://img.shields.io/docker/pulls/tarampampam/node.svg?maxAge=30&style=flat-square
-[badge_issues]:https://img.shields.io/github/issues/tarampampam/node-docker.svg?maxAge=30&style=flat-square
-[badge_license]:https://img.shields.io/github/license/tarampampam/node-docker.svg?maxAge=30&style=flat-square&color=success
-[badge_build_minor]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20minor%20alpine%20image.svg?label=minor%20build&logo=github&style=flat-square
-[badge_build_major]:https://img.shields.io/github/workflow/status/tarampampam/node-docker/Build%20major%20images.svg?label=major%20build&logo=github&style=flat-square
 [node-586]:https://github.com/nodejs/docker-node/issues/586
-[link_base_node_image]:https://hub.docker.com/_/node?tab=tags
-[link_hub]:https://hub.docker.com/r/tarampampam/node/
-[link_actions]:https://github.com/tarampampam/node-docker/actions
-[link_docker_tags]:https://hub.docker.com/r/tarampampam/node/tags
-[link_license]:https://github.com/tarampampam/node-docker/blob/master/LICENSE
-[link_issues]:https://github.com/tarampampam/node-docker/issues
+[base-node-image]:https://hub.docker.com/_/node?tab=tags
+[docker-hub]:https://hub.docker.com/r/tarampampam/node/
+[ghcr]:https://github.com/tarampampam/node-docker/pkgs/container/node
+[docker-hub-tags]:https://hub.docker.com/r/tarampampam/node/tags
+[new-issue]:https://github.com/tarampampam/node-docker/issues/new
