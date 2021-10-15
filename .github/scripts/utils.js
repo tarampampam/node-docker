@@ -130,8 +130,38 @@ const getEnv = (name) => {
   return ''
 }
 
+/**
+ *
+ * @type {Object.<string, string[]>}
+ */
+const tagsArchIgnoreList = require('ignorelist.json')
+
+/**
+ * @param {string} tag
+ * @param {string} arch
+ * @return {boolean}
+ */
+const shouldBeIgnored = (tag, arch) => {
+  if (tag in tagsArchIgnoreList) {
+    const archList = tagsArchIgnoreList[tag]
+
+    if (archList.length === 0) {
+      return false
+    }
+
+    for (let i = 0; i < archList.length; i++) {
+      if (archList[i] === '*' || archList[i] === arch) {
+        return true
+      }
+    }
+  }
+
+  return false
+}
+
 module.exports = {
   fetchImageTagInfo,
   fetchTagsHistory,
+  shouldBeIgnored,
   getEnv,
 }

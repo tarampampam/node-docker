@@ -1,4 +1,4 @@
-const {fetchTagsHistory, getEnv} = require('./utils')
+const {fetchTagsHistory, getEnv, shouldBeIgnored} = require('./utils')
 
 /**
  * @param {Object} github Docs: <https://octokit.github.io/rest.js/v18>
@@ -29,7 +29,30 @@ module.exports = async ({github, context, core}) => {
       && /^\d+\.\d+[^.]+$/.test(image.tag) // only in MAJOR.MINOR format
   }
 
-  const sourceTags = (await fetchTagsHistory(env.sourceImage, 40)).filter(tagsFilter)
+  const sourceTags = (await fetchTagsHistory(env.sourceImage, 40))
+    .filter(tagsFilter) // the common filter
+    .map(image => {
+      image.arch.filter(arch => {
+        const should = shouldBeIgnored(image.tag, arch)
+
+        if (should === true) {
+          core.info(`Architecture ${arch} for the tag ${image.tag} ignored (rule from the ignore-list)`)
+        }
+
+        return should
+      })
+
+      return image
+    })
+    .filter(image => {
+      const ignore = image.arch.length === 0
+
+      if (ignore) {
+        core.notice(`Tag ${image.tag} ignored (it does not contain the architectures)`)
+      }
+
+      return !ignore
+    })
 
   core.info(`${sourceTags.length} minor alpine-like tags were found for the ${env.sourceImage} image: ${sourceTags.map(i => i.tag).join(', ')}`)
 

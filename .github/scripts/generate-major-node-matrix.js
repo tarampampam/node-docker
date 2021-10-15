@@ -1,4 +1,4 @@
-const {fetchImageTagInfo, getEnv} = require('./utils')
+const {fetchImageTagInfo, getEnv, shouldBeIgnored} = require('./utils')
 
 /**
  * @param {Object} github Docs: <https://octokit.github.io/rest.js/v18>
@@ -61,10 +61,32 @@ module.exports = async ({github, context, core}) => {
 
     promisesList.forEach(promise => {
       if (promise.status === 'fulfilled') {
-        matrix.include.push({
-          tag: promise.value.tag,
-          platforms: promise.value.arch.join(','),
-        })
+        /** @type {{tag: string, arch: string[]}} */
+        const image = promise.value
+
+        image.arch
+          .map(arch => {
+            arch.filter(arch => {
+              const should = shouldBeIgnored(image.tag, arch)
+
+              if (should === true) {
+                core.info(`Architecture ${arch} for the tag ${image.tag} ignored (rule from the ignore-list)`)
+              }
+
+              return should
+            })
+
+            return arch
+          })
+
+        if (image.arch.length !== 0) {
+          matrix.include.push({
+            tag: image.tag,
+            platforms: image.arch.join(','),
+          })
+        } else {
+          core.notice(`Tag ${image.tag} ignored (it does not contain the architectures)`)
+        }
       } else {
         core.notice(promise.reason.message)
       }

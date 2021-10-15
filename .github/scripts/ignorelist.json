@@ -1,0 +1,9 @@
+{
+  "X.Y-alpine": [
+    "arch1",
+    "arch2"
+  ],
+  "X.Z-alpine": [
+    "*"
+  ]
+}

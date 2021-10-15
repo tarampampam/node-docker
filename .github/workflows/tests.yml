@@ -24,7 +24,7 @@ jobs: # Docs: <https://git.io/JvxXE>
     strategy:
       fail-fast: false
       matrix:
-        node-version: ['', alpine, latest, 6.17-alpine, 7.5-alpine, 8.12-alpine, 9.7-alpine]
+        node-version: ['', alpine, latest, 6.17-alpine, 7.5-alpine, 8.12-alpine]
     steps:
       - uses: actions/checkout@v2
 
