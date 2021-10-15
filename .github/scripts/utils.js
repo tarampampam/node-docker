@@ -134,7 +134,7 @@ const getEnv = (name) => {
  *
  * @type {Object.<string, string[]>}
  */
-const tagsArchIgnoreList = require('ignorelist.json')
+const tagsArchIgnoreList = require('./ignorelist.json')
 
 /**
  * @param {string} tag
