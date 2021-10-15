@@ -54,8 +54,8 @@ Image: tarampampam/node:latest
 - `alpine`
 - `lts-alpine`
 - `current-alpine`
-- `8-alpine` (deprecated)
-- `9-alpine` (deprecated)
+- `8-alpine`, `8.x-alpine` (deprecated)
+- `9-alpine`, `9.x-alpine` (deprecated)
 - `10-alpine`, `10.x-alpine`
 - `11-alpine`, `11.x-alpine`
 - `12-alpine`, `12.x-alpine`
@@ -64,9 +64,7 @@ Image: tarampampam/node:latest
 - `15-alpine`, `15.x-alpine`
 - `16-alpine`, `16.x-alpine`
 
-> Page on `hub.docker.com` can be [found here][docker-hub].
-
-New **minor** `alpine`-based images _(e.g. `tarampampam/node:13.1-alpine`, if it does not exists previously)_ builds automatically every hour, **major** _(e.g. `tarampampam/node:13-alpine`)_ and `latest` rebuilds every 3 days.
+> Note: Some tags/platforms [are ignored](.github/scripts/ignorelist.json) due to the "Segmentation fault" errors
 
 ## How can I use this?
 

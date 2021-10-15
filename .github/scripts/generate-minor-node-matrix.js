@@ -29,7 +29,7 @@ module.exports = async ({github, context, core}) => {
       && /^\d+\.\d+[^.]+$/.test(image.tag) // only in MAJOR.MINOR format
   }
 
-  const sourceTags = (await fetchTagsHistory(env.sourceImage, 450))
+  const sourceTags = (await fetchTagsHistory(env.sourceImage, 30))
     .filter(tagsFilter) // the common filter
     .map(image => {
       image.arch = image.arch.filter(arch => {
@@ -56,7 +56,7 @@ module.exports = async ({github, context, core}) => {
 
   core.info(`${sourceTags.length} minor alpine-like tags were found for the ${env.sourceImage} image: ${sourceTags.map(i => i.tag).join(', ')}`)
 
-  const targetTags = (await fetchTagsHistory(env.targetImage, 20)).filter(tagsFilter)
+  const targetTags = (await fetchTagsHistory(env.targetImage, 15)).filter(tagsFilter)
 
   core.info(`${targetTags.length} minor alpine-like tags were found for the ${env.targetImage} image: ${targetTags.map(i => i.tag).join(', ')}`)
 
