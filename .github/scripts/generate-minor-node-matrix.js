@@ -39,7 +39,7 @@ module.exports = async ({github, context, core}) => {
           core.info(`Architecture ${arch} for the tag ${image.tag} ignored (rule from the ignore-list)`)
         }
 
-        return should
+        return !should
       })
 
       return image
