@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-minor?maxAge=30&label=build%20minor&logo=github&style=flat-square" alt="" />
-  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-major?maxAge=30&label=build%20major&logo=github&style=flat-square" alt="" />
+  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-minor?maxAge=20&label=build%20minor&logo=github&style=flat-square" alt="" />
+  <img src="https://img.shields.io/github/workflow/status/tarampampam/error-pages/build-major?maxAge=20&label=build%20major&logo=github&style=flat-square" alt="" />
   <img src="https://img.shields.io/docker/pulls/tarampampam/node.svg?maxAge=30&logo=docker&logoColor=white&style=flat-square" alt="" />
   <img src="https://img.shields.io/github/license/tarampampam/node-docker.svg?maxAge=30&style=flat-square" alt="" />
 </p>
