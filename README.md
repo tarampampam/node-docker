@@ -63,6 +63,7 @@ Image: tarampampam/node:latest
 - `14-alpine`, `14.x-alpine`
 - `15-alpine`, `15.x-alpine`
 - `16-alpine`, `16.x-alpine`
+- `17-alpine`, `17.x-alpine`
 
 > Note: Some tags/platforms [are ignored](.github/scripts/ignorelist.json) due to the "Segmentation fault" errors
 
@@ -75,7 +76,7 @@ $ docker run --rm \
     --volume "$(pwd):/app" \
     --workdir "/app" \
     --user "$(id -u):$(id -g)" \
-    tarampampam/node:16-alpine \
+    tarampampam/node:17-alpine \
     yarn install
 ```
 
@@ -84,7 +85,7 @@ Or using with `docker-compose.yml`:
 ```yml
 services:
   node:
-    image: tarampampam/node:16-alpine
+    image: tarampampam/node:17-alpine
     volumes:
       - ./src:/app:rw
     working_dir: /app
