@@ -46,7 +46,7 @@ jobs:
     needs: [plan]
     if: ${{ fromJSON(needs.plan.outputs.matrix).include[0] }} # docs: <https://bit.ly/2YHHXXs>
     runs-on: ubuntu-20.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
