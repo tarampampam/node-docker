@@ -1,5 +1,4 @@
 {
-  "19.0-alpine": ["linux/arm/v6"],
   "9.11-alpine": ["linux/386"],
   "9.10-alpine": ["linux/386"],
   "9.7-alpine": ["linux/386"],
