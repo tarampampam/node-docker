@@ -27,12 +27,10 @@ We had installed to the alpine-based images the following applications (using a 
 
 I took care of this - using periodic runs of GitHub actions tags in `major(.minor)-alpine` format are automatically rebuilt (if they have been updated). You can check all existing tags in one of the following docker-registries:
 
-[![image stats](https://dockeri.co/image/tarampampam/node)][docker-hub-tags]
-
-Registry                                   | Image
------------------------------------------- | -----
-[Docker Hub][docker-hub]                   | `tarampampam/node`
-[GitHub Container Registry][ghcr] (mirror) | `ghcr.io/tarampampam/node`
+| Registry                                   | Image                      |
+|--------------------------------------------|----------------------------|
+| [Docker Hub][docker-hub]                   | `tarampampam/node`         |
+| [GitHub Container Registry][ghcr] (mirror) | `ghcr.io/tarampampam/node` |
 
 All tags support architectures that are available in the original tags:
 
@@ -64,6 +62,8 @@ Image: tarampampam/node:latest
 - `15-alpine`, `15.x-alpine`
 - `16-alpine`, `16.x-alpine`
 - `17-alpine`, `17.x-alpine`
+- `18-alpine`, `18.x-alpine`
+- `19-alpine`, `19.x-alpine`
 
 > Note: Some tags/platforms [are ignored](.github/scripts/ignorelist.json) due to the "Segmentation fault" errors
 
@@ -100,5 +100,4 @@ WTFPL. Use anywhere for your pleasure.
 [base-node-image]:https://hub.docker.com/_/node?tab=tags
 [docker-hub]:https://hub.docker.com/r/tarampampam/node/
 [ghcr]:https://github.com/tarampampam/node-docker/pkgs/container/node
-[docker-hub-tags]:https://hub.docker.com/r/tarampampam/node/tags
 [new-issue]:https://github.com/tarampampam/node-docker/issues/new
